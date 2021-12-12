@@ -1,6 +1,7 @@
 package entityservice;
 
 import dao.KullaniciDao;
+import dto.KullaniciYorumDto;
 import entity.Kullanici;
 
 import java.util.List;
@@ -15,5 +16,9 @@ public class KullaniciEntityService {
 
     public List<Kullanici> findAll(){
         return kullaniciDao.findAll();
+    }
+
+    public List<KullaniciYorumDto> findAllYorumByKullaniciId(Long kullaniciId){
+        return kullaniciDao.findAllYorumByKullaniciId(kullaniciId);
     }
 }

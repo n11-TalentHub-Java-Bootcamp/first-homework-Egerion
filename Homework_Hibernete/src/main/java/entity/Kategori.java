@@ -31,31 +31,24 @@ public class Kategori {
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
     public Kategori getUstKategori() {
         return ustKategori;
     }
-
     public void setUstKategori(Kategori ustKategori) {
         this.ustKategori = ustKategori;
     }
-
     public String getAdi() {
         return adi;
     }
-
     public void setAdi(String adi) {
         this.adi = adi;
     }
-
     public Long getKirilim() {
         return kirilim;
     }
-
     public void setKirilim(Long kirilim) {
         this.kirilim = kirilim;
     }

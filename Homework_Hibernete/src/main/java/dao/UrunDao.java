@@ -3,7 +3,9 @@ package dao;
 import base.BaseDao;
 import dto.UrunDetayDto;
 import entity.Urun;
+import entity.UrunYorum;
 import org.hibernate.query.Query;
+import org.intellij.lang.annotations.Language;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -13,7 +15,6 @@ public class UrunDao extends BaseDao {
     public List<Urun> findAll(){
 
         String sql = "select urun from Urun urun";
-
         Query query = getCurrentSession().createQuery(sql);
 
         return query.list();
@@ -88,5 +89,4 @@ public class UrunDao extends BaseDao {
 
         return query.list();
     }
-
 }

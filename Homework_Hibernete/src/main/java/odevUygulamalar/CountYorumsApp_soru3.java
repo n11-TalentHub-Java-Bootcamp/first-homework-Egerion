@@ -1,20 +1,21 @@
 package odevUygulamalar;
 
-import entity.Urun;
-import entity.UrunYorum;
+import dto.UrunYorumToplamDto;
 import entityservice.UrunYorumEntityService;
 
 import java.util.List;
 
-public class FindAllApp {
+public class CountYorumsApp_soru3 {
 
     public static void main(String[] args) {
 
-        //find all
+        //3. Soru
         UrunYorumEntityService service = new UrunYorumEntityService();
-        List<UrunYorum> urunYorum = service.findAll();
-        for (UrunYorum all : urunYorum) {
+        List<UrunYorumToplamDto> toplamUrunYorum = service.countAllYorumOnUrunler();
+
+        for (UrunYorumToplamDto urunYorum : toplamUrunYorum) {
             System.out.println(urunYorum);
         }
+
     }
 }

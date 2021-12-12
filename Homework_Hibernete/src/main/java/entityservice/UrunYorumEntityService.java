@@ -2,6 +2,7 @@ package entityservice;
 
 import dao.UrunYorumDao;
 import dto.UrunYorumDto;
+import dto.UrunYorumToplamDto;
 import entity.UrunYorum;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class UrunYorumEntityService {
         return urunYorumDao.findUrunYorumDtoByUrunId(urunId);
     }
 
-    public List<UrunYorum> findAllYorumsOnUrun(){
-        return urunYorumDao.findAllYorumsOnUrun();
+    public List<UrunYorumToplamDto> countAllYorumOnUrunler(){
+        return urunYorumDao.countAllYorumOnUrunler();
     }
 }

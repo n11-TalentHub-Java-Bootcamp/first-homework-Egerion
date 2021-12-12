@@ -2,6 +2,7 @@ package dao;
 
 import base.BaseDao;
 import dto.UrunYorumDto;
+import dto.UrunYorumToplamDto;
 import entity.UrunYorum;
 import org.hibernate.query.Query;
 import org.intellij.lang.annotations.Language;
@@ -20,7 +21,15 @@ public class UrunYorumDao extends BaseDao {
 
         @Language("SQL")
         String sql = "select " +
-              "new dto.UrunYorumDto(urun.adi, kategori.adi, urun.fiyat, kullanici.adi, kullanici.soyadi, kullanici.email, kullanici.telefon, urunYorum.yorum, urunYorum.yorumTarihi) " +
+              "new dto.UrunYorumDto(urun.adi, " +
+                "kategori.adi," +
+                " urun.fiyat," +
+                " kullanici.adi," +
+                " kullanici.soyadi," +
+                " kullanici.email," +
+                " kullanici.telefon," +
+                " urunYorum.yorum," +
+                " urunYorum.yorumTarihi) " +
                 "from UrunYorum urunYorum "+
                 "left join Urun urun on urun.id = urunYorum.urunId "+
                 "left join Kategori kategori on kategori.id = urun.id " +
@@ -33,13 +42,23 @@ public class UrunYorumDao extends BaseDao {
         return query.list();
     }
 
-    public List<UrunYorum> findAllYorumsOnUrun(){
+    /*id
+     *adi
+     * fiyat
+     * toplamYorum
+     */
+    public List<UrunYorumToplamDto> countAllYorumOnUrunler(){
 
         @Language("SQL")
-        String sql = "select " +
-                "urunYorum " +
-                "from UrunYorum urunYorum " +
-                "left join Urun urun on urunYorum.urunId = urun.id";
+        String sql = "select new dto.UrunYorumToplamDto(" +
+                "urun.id, " +
+                "urun.adi, " +
+                "urun.fiyat, " +
+                "count(urunYorum.yorum)) " +
+                "from Urun urun " +
+                "left join UrunYorum urunYorum" +
+                " on urun.id = urunYorum.urunId" +
+                " group by urun.id, urun.adi";
         Query query = getCurrentSession().createQuery(sql);
         return query.list();
     }

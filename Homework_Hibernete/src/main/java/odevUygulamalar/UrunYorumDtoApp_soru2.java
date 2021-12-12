@@ -5,7 +5,7 @@ import entityservice.UrunYorumEntityService;
 
 import java.util.List;
 
-public class DtoApp {
+public class UrunYorumDtoApp_soru2 {
 
     public static void main(String[] args) {
 

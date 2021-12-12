@@ -1,3 +1,3 @@
-INSERT INTO public.urunyorum(
-	id, kullanici_id, urun_id, yorum, yorum_tarihi)
-	VALUES (1, 1, 2, 'Deneme Yorumu', current_timestamp);
+INSERT INTO public.urunyorum(id, kullanici_id, urun_id, yorum, yorum_tarihi) VALUES (1, 1, 1, 'Mavi Elbise Yorum', current_timestamp);
+INSERT INTO public.urunyorum(id, kullanici_id, urun_id, yorum, yorum_tarihi) VALUES (2, 2, 2, 'Kırmızı Elbise Yorum', current_timestamp);
+INSERT INTO public.urunyorum(id, kullanici_id, urun_id, yorum, yorum_tarihi) VALUES (3, 3, 3, 'Mavi Gömlek Yorum', current_timestamp);

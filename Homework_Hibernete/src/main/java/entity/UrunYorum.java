@@ -11,7 +11,7 @@ import java.util.Date;
  * kullaniciid
  */
 @Entity
-@Table(name="UrunYorum")
+@Table(name="URUNYORUM")
 public class UrunYorum {
     @Id
     @Column(name = "ID", nullable = false)
@@ -29,40 +29,49 @@ public class UrunYorum {
     public int getKullaniciId() {
         return kullaniciId;
     }
-
     public void setKullaniciId(int kullaniciId) {
         this.kullaniciId = kullaniciId;
     }
-
     public String getYorum() {
         return yorum;
     }
-
     public void setYorum(String yorum) {
         this.yorum = yorum;
     }
-
     public Date getYorumTarihi() {
         return yorumTarihi;
     }
-
     public void setYorumTarihi(Date yorumTarihi) {
         this.yorumTarihi = yorumTarihi;
     }
-
     public Long getUrunId() {
         return urunId;
     }
-
     public void setUrunId(Long urunId) {
         this.urunId = urunId;
     }
-
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "urun_id")
+    private Urun urun;
+
+    public Urun getUrun() {
+        return urun;
+    }
+
+    @Override
+    public String toString() {
+        return "Kategori{" +
+                "id=" + id +
+                ", yorum='" + yorum + '\'' +
+                ", urunId=" + urunId +
+                ", kullaniciId=" + kullaniciId +
+                '}';
     }
 }
